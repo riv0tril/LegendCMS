@@ -1,7 +1,7 @@
 {
-    "default": "Legend Slow",
     "source": "Louis",
     "version": "6.3",
+    "default": "Legend Slow",
     "pool": [
         {
             "name": "Legend Slow",
@@ -9,9 +9,9 @@
             "experience": "100%",
             "drop": "100%",
             "ips": {
-                "gameServer": "127.0.0.1:1000",
-                "joinServer": "127.0.0.1:1000",
-                "connectServer ": "127.0.0.1:1000"
+                "gameServer": "192.162.0.1:1000",
+                "joinServer": "192.162.0.1:1000",
+                "connectServer": "192.162.0.1:1000"
             },
             "connection": "Legend Slow"
         }

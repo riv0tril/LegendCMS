@@ -11,7 +11,7 @@ final class I18n extends JsonFile
 {
     public function __construct()
     {
-        parent::__construct('i18n.json', 'i18n.schema.json');
+        parent::__construct('i18n.json', 'schemas/i18n.schema.json');
     }
 
     public function parse(): I18nDto

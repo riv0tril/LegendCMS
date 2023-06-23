@@ -6,23 +6,17 @@ use App\Application\Configuration\Exception\AttributeException;
 
 class Helper
 {
-    public static function validateProps(array $props, $dto): void
+    public static function validateProps(array $structure, array $array): bool
     {
-        foreach ($props as $prop) {
-            if (is_array($props)) {
-                foreach ($prop as $subProp) {
-                    if (!array_key_exists($subProp, $dto[$prop])) {
-                        throw new AttributeException("Missing attribute: $dto[$prop] - " . $subProp);
-                    }
-                }
-            }
-            if (!array_key_exists($prop, $dto)) {
-                throw new AttributeException("Missing attribute: $prop");
+        $errors = [];
+        foreach ($structure as $key => $value) {
+            if (is_array($value)) {
+                if (!array_key_exists($key, $array)) $errors[] = false;
+                Helper::validateProps($structure[$key], $array[$key], $errors);
+            } else {
+                if (!array_key_exists($value, $array)) $errors[] = false;
             }
         }
-
-        if (count(array_keys($dto)) < count($props)) {
-            throw new AttributeException("Too many attributes");
-        }
+        return empty($errors);
     }
 }

@@ -13,4 +13,6 @@ interface IServers {
     public function setPool(array $pool): self;
     public function removeFromPool(string $name): self;
     public function addToPool(array $server): self;
+    public function updateInPool(string $name, array $server): self;
+    public function getFromPool(string $server): array;
 }
