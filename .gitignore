@@ -13,7 +13,7 @@ nbproject/
 /var/cache/*
 .phpunit.result.cache
 cache.properties
-/test/**/*.json
+/tests/**/*.json
 .php_cs.cache
 # Composer
 composer.phar
