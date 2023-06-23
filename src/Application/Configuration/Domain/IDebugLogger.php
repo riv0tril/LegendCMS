@@ -2,7 +2,7 @@
 
 namespace App\Application\Configuration\Domain;
 
-interface IDebugLogger extends IArrayable { 
+interface IDebugLogger { 
     public function setPath(string $path): self;
     public function getPath(): string;
     public function setLevel(string $level): self;

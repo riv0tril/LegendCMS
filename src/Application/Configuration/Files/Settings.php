@@ -2,6 +2,7 @@
 
 namespace App\Application\Configuration\Files;
 
+use App\Application\Configuration\Domain\FileDto;
 use App\Application\Configuration\Domain\ISettings;
 use App\Application\Configuration\Helper;
 use App\Application\Configuration\JsonFile;
@@ -15,19 +16,12 @@ final class Settings extends JsonFile
 
     public function parse(): SettingsDTO
     {
-        return new SettingsDTO(parent::read()->getContent());
+        return new SettingsDto($this->read());
     }
 }
 
-final class SettingsDTO implements ISettings
+final class SettingsDto extends FileDto implements ISettings
 {
-    private array $content;
-
-    public function __construct(array &$content)
-    {
-        $this->content = $content;
-    }
-
     public function getGeneral(): array
     {
         return $this->content['general'];

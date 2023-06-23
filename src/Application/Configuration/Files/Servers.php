@@ -2,6 +2,7 @@
 
 namespace App\Application\Configuration\Files;
 
+use App\Application\Configuration\Domain\FileDto;
 use App\Application\Configuration\Domain\IServers;
 use App\Application\Configuration\Helper;
 use App\Application\Configuration\JsonFile;
@@ -13,21 +14,14 @@ final class Servers extends JsonFile
         parent::__construct('servers.json', 'servers.schema.json');
     }
 
-    public function parse(): i18nDTO
+    public function parse(): ServerDto
     {
-        return new i18nDTO(parent::read()->getContent());
+        return new ServerDto($this->read());
     }
 }
 
-final class i18nDTO implements IServers
+final class ServerDto extends FileDto implements IServers
 {
-    private array $content;
-
-    public function __construct(array &$content)
-    {
-        $this->content = $content;
-    }
-
     public function getDefault(): string
     {
         return $this->content['default'];

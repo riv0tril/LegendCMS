@@ -2,6 +2,7 @@
 
 namespace App\Application\Configuration\Files;
 
+use App\Application\Configuration\Domain\FileDto;
 use App\Application\Configuration\Domain\ISession;
 use App\Application\Configuration\JsonFile;
 
@@ -12,22 +13,15 @@ final class Session extends JsonFile
         parent::__construct('session.json', 'session.schema.json');
     }
 
-    public function parse(): SessionDTO
+    public function parse(): SessionDto
     {
-        return new SessionDTO(parent::read()->getContent());
+        return new SessionDto($this->read());
     }
 }
 
 
-final class SessionDTO implements ISession
+final class SessionDto extends FileDto implements ISession
 {
-    private array $content;
-
-    public function __construct(array &$content)
-    {
-        $this->content = $content;
-    }
-
     public function getExpires(): int
     {
         return $this->content['expires'];
