@@ -32,6 +32,10 @@ class TestCase extends PHPUnit_TestCase
         // Container intentionally not compiled for tests.
 
         // Set up settings
+        $configuration = require __DIR__ . '/../app/configuration.php';
+        $configuration($containerBuilder);
+
+        // Set up settings
         $settings = require __DIR__ . '/../app/settings.php';
         $settings($containerBuilder);
 
@@ -57,6 +61,35 @@ class TestCase extends PHPUnit_TestCase
         // Register routes
         $routes = require __DIR__ . '/../app/routes.php';
         $routes($app);
+
+        return $app;
+    }
+
+    /**
+     * @return App
+     * @throws Exception
+     */
+    protected function getAppInstanceWithConfiguration(array $config): App
+    {
+        // Instantiate PHP-DI ContainerBuilder
+        $containerBuilder = new ContainerBuilder();
+
+        // Container intentionally not compiled for tests.
+
+        foreach ($config as $name => $config) {
+            $containerBuilder->addDefinitions([
+                $name => function() use ($config) {
+                    return $config->parse();
+                }
+            ]);
+        }
+       
+        // Build PHP-DI Container instance
+        $container = $containerBuilder->build();
+
+        // Instantiate the app
+        AppFactory::setContainer($container);
+        $app = AppFactory::create();
 
         return $app;
     }

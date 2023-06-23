@@ -10,7 +10,7 @@ final class Template extends JsonFile
 {
     public function __construct()
     {
-        parent::__construct('template.json', 'template.schema.json');
+        parent::__construct('template.json', 'schemas/template.schema.json');
     }
 
     public function parse(): TemplateDto

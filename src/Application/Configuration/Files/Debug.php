@@ -10,7 +10,7 @@ class Debug extends JsonFile
 {
     public function __construct()
     {
-        parent::__construct('debug.json', '/schemas/debug.schema.json');
+        parent::__construct('debug.json', 'schemas/debug.schema.json');
     }
 
     public function parse(): DebugDto

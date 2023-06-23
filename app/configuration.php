@@ -2,31 +2,33 @@
 
 declare(strict_types=1);
 
-use App\Configuration\Files\Debug;
-use App\Configuration\Files\I18N;
-use App\Configuration\Files\Servers;
-use App\Configuration\Files\Session;
-use App\Configuration\Files\Settings;
-use App\Configuration\Files\SMTP;
-use App\Configuration\Files\Template;
+use App\Application\Configuration\Files\Debug;
+use App\Application\Configuration\Files\I18n;
+use App\Application\Configuration\Files\Servers;
+use App\Application\Configuration\Files\Session;
+use App\Application\Configuration\Files\Settings;
+use App\Application\Configuration\Files\Smtp;
+use App\Application\Configuration\Files\Template;
 use DI\ContainerBuilder;
 
 return function (ContainerBuilder $containerBuilder) {
 
     $configurations = [
         Debug::class => new Debug(),
-        I18N::class => new I18N(),
+        I18n::class => new I18n(),
         Servers::class => new Servers(),
         Session::class => new Session(),
         Settings::class => new Settings(),
-        SMTP::class => new SMTP(),
+        Smtp::class => new Smtp(),
         Template::class => new Template(),
     ];
 
-    foreach ($configurations as $config) {
-        $config->parse();
-    }
-
     // Global File Configurations
-    $containerBuilder->addDefinitions($configurations);
+    foreach ($configurations as $name => $config) {
+        $containerBuilder->addDefinitions([
+            $name => function() use ($config) {
+                return $config->parse();
+            }
+        ]);
+    }
 };

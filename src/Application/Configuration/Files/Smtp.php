@@ -10,7 +10,7 @@ final class Smtp extends JsonFile
 {
     public function __construct()
     {
-        parent::__construct('smtp.json', 'smtp.schema.json');
+        parent::__construct('smtp.json', 'schemas/smtp.schema.json');
     }
 
     public function parse(): SmtpDto

@@ -10,7 +10,7 @@ final class Session extends JsonFile
 {
     public function __construct()
     {
-        parent::__construct('session.json', 'session.schema.json');
+        parent::__construct('session.json', 'schemas/session.schema.json');
     }
 
     public function parse(): SessionDto

@@ -11,7 +11,7 @@ final class Settings extends JsonFile
 {
     public function __construct()
     {
-        parent::__construct('settings.json', 'settings.schema.json');
+        parent::__construct('settings.json', 'schemas/settings.schema.json');
     }
 
     public function parse(): SettingsDTO
