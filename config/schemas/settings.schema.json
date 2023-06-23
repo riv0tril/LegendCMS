@@ -1,0 +1,95 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "general": {
+            "type": "object",
+            "properties": {
+                "baseUrl": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "admincp": {
+                    "type": "string"
+                },
+                "httpVersion": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "baseUrl",
+                "admincp",
+                "httpVersion"
+            ]
+        },
+        "website": {
+            "type": "object",
+            "properties": {
+                "title": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "meta": {
+                    "type": "object",
+                    "properties": {
+                        "robots": {
+                            "type": "string"
+                        },
+                        "charset": {
+                            "type": "string"
+                        },
+                        "keywords": {
+                            "type": "string"
+                        },
+                        "description": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "robots",
+                        "charset",
+                        "keywords",
+                        "description"
+                    ]
+                }
+            },
+            "required": [
+                "title",
+                "name",
+                "meta"
+            ]
+        },
+        "maintainance": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "end": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "start": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "required": [
+                "enabled",
+                "message",
+                "end",
+                "start"
+            ]
+        }
+    },
+    "required": [
+        "general",
+        "website",
+        "maintainance"
+    ]
+}

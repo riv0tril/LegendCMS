@@ -1,0 +1,36 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "log": {
+            "type": "boolean"
+        },
+        "details": {
+            "type": "boolean"
+        },
+        "logger": {
+            "type": "object",
+            "properties": {
+                "path": {
+                    "type": "string"
+                },
+                "level": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "path",
+                "level"
+            ]
+        },
+        "debug": {
+            "type": "boolean"
+        }
+    },
+    "required": [
+        "log",
+        "details",
+        "logger",
+        "debug"
+    ]
+}

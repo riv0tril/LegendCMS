@@ -1,0 +1,23 @@
+{
+    "general": {
+        "baseUrl": "http://dev.legend.com",
+        "admincp": "admincp",
+        "httpVersion": "1.1"
+    },
+    "website": {
+        "title": "Legend CMS",
+        "name": "",
+        "meta": {
+            "robots": "index, follow",
+            "charset": "utf-8",
+            "keywords": "Legend CMS",
+            "description": "Legend CMS"
+        }
+    },
+    "maintenance": {
+        "enabled": false,
+        "message": "Manteinance mode",
+        "end": "2023-04-08T12:30:00Z",
+        "start": "2023-04-08T12:30:00Z"
+    }
+}

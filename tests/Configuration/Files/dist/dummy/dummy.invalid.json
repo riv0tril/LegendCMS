@@ -1,0 +1,8 @@
+{
+    "log": false,
+    "details": false,
+    "logger": {
+        "path": "app.log",
+        "level": "INFO"
+    }
+}

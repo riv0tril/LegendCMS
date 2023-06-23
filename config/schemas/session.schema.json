@@ -1,0 +1,17 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "expires": {
+            "type": "integer",
+            "minimum": 1
+        },
+        "secret": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "expires",
+        "secret"
+    ]
+}

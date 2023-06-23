@@ -1,0 +1,68 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "default": {
+            "type": "string"
+        },
+        "source": {
+            "type": "string"
+        },
+        "version": {
+            "type": "string"
+        },
+        "servers": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "online": {
+                        "type": "integer"
+                    },
+                    "experience": {
+                        "type": "string"
+                    },
+                    "drop": {
+                        "type": "string"
+                    },
+                    "ips": {
+                        "type": "object",
+                        "properties": {
+                            "gameServer": {
+                                "type": "string"
+                            },
+                            "joinServer": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "gameServer",
+                            "joinServer"
+                        ]
+                    },
+                    "connection": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name",
+                    "online",
+                    "experience",
+                    "drop",
+                    "ips",
+                    "connection"
+                ]
+            }
+        }
+    },
+    "required": [
+        "default",
+        "source",
+        "version",
+        "servers"
+    ]
+}

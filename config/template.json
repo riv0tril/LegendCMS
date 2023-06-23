@@ -1,0 +1,10 @@
+{
+    "name": "Dark Legend",
+    "path": "dark-legend",
+    "css": [
+        "style.css"
+    ],
+    "js": [
+        "script.js"
+    ]
+}
