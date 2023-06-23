@@ -1,3 +1,3 @@
 # LegendCMS
 
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/riv0tril/LegendCMS/tree/develop.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/riv0tril/LegendCMS/tree/develop)
+[![Build & Test](https://github.com/riv0tril/LegendCMS/actions/workflows/php.yml/badge.svg?branch=master)](https://github.com/riv0tril/LegendCMS/actions/workflows/php.yml)
