@@ -1,9 +1,9 @@
 {
-    "log": false,
-    "details": false,
+    "log": true,
+    "details": true,
     "logger": {
-        "path": "app.log",
-        "level": "INFO"
+        "path": "test.log",
+        "level": "DEBUG"
     },
-    "debug": false
+    "debug": true
 }
