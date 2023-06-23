@@ -3,8 +3,7 @@
     "details": false,
     "logger": {
         "path": "app.log",
-        "level": "INFO",
-        "levessl": "INFO"
+        "level": "INFO"
     },
     "debug": false
 }
