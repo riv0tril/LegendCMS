@@ -2,6 +2,7 @@
 
 namespace App\Application\Configuration\Files;
 
+use App\Application\Configuration\Domain\FileDto;
 use App\Application\Configuration\Domain\ISmtp;
 use App\Application\Configuration\JsonFile;
 
@@ -12,21 +13,14 @@ final class Smtp extends JsonFile
         parent::__construct('smtp.json', 'smtp.schema.json');
     }
 
-    public function parse(): SmtpDTO
+    public function parse(): SmtpDto
     {
-        return new SmtpDTO(parent::read()->getContent());
+        return new SmtpDto($this->read());
     }
 }
 
-final class SmtpDTO implements ISmtp
+final class SmtpDto extends FileDto implements ISmtp
 {
-    private array $content;
-
-    public function __construct(array &$content)
-    {
-        $this->content = $content;
-    }
-
     public function getHost(): string
     {
         return $this->content['host'];

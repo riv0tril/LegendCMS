@@ -2,6 +2,7 @@
 
 namespace App\Application\Configuration\Files;
 
+use App\Application\Configuration\Domain\FileDto;
 use App\Application\Configuration\Domain\ITemplate;
 use App\Application\Configuration\JsonFile;
 
@@ -12,21 +13,14 @@ final class Template extends JsonFile
         parent::__construct('template.json', 'template.schema.json');
     }
 
-    public function parse(): TemplateDTO
+    public function parse(): TemplateDto
     {
-        return new TemplateDTO(parent::read()->getContent());
+        return new TemplateDto($this->read());
     }
 }
 
-final class TemplateDTO implements ITemplate
+final class TemplateDto extends FileDto implements ITemplate
 {
-    private array $content;
-
-    public function __construct(array &$content)
-    {
-        $this->content = $content;
-    }
-
     public function getName(): string
     {
         return $this->content['name'];
