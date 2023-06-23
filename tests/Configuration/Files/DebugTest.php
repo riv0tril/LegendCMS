@@ -56,7 +56,6 @@ class DebugTest extends TestCase
         $this->assertEquals(true, $aDbg);
         $this->assertEquals('DEBUG', $aLvl);
         $this->assertEquals('test.log', $aPat);
-        $this->assertEquals(false, true);
 
         //revert to original state
         $dto->setLog(false);
